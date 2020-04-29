@@ -2,38 +2,41 @@ import React, { Component } from "react";
 import axios from "axios";
 import MaterialTable from 'material-table';
 
-export default class Table extends Component {
+export default class UsersTable extends Component {
     constructor(props){
         super(props);
         this.state = {
             columns: [
-                { title: 'Name', field: 'name' },
-                { title: 'Birth', field: 'birth' },
-                { title: 'Color', field: 'color' },
+                { title: 'Full name', field: 'full_name' },
                 { title: 'Sex', field: 'sex' },
+                { title: 'Date of birth', field: 'birth' },
+                { title: 'City', field: 'city' },
+                { title: 'Phone number', field: 'phone' },
+                { title: 'Email', field: 'email' },
+                { title: 'Password', field: 'password' },
             ],
             data: []
         }
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:5000/api/v1/animals`)
+        axios.get(`http://localhost:5000/api/v1/users`)
             .then((response) => this.setState({
                 data: response.data
             }))
-            .catch( (err) => console.log('[Animals Table get data]: ' + err) );
+            .catch( (err) => console.log('[Users Table get data]: ' + err) );
     }
 
     render() {
         console.log(this.state);
         return (
             <MaterialTable
-                title="Animals"
+                title="Users"
                 columns={this.state.columns}
                 data={this.state.data}
                 editable={{
                     onRowAdd: async (newData) => {
-                        axios.post('http://localhost:5000/api/v1/animals/', newData)
+                        axios.post('http://localhost:5000/api/v1/users/', newData)
                             .then(function (response) {
                                 document.location.reload(true);
                             })
@@ -42,7 +45,7 @@ export default class Table extends Component {
                             });
                     },
                     onRowUpdate: (newData) => {
-                        axios.put(`http://localhost:5000/api/v1/animals/${newData.id}`, newData)
+                        axios.put(`http://localhost:5000/api/v1/users/${newData.id}`, newData)
                             .then(function (response) {
                                 document.location.reload(true);
                             })
@@ -51,7 +54,7 @@ export default class Table extends Component {
                             });
                     },
                     onRowDelete: (oldData) =>{
-                        axios.delete(`http://localhost:5000/api/v1/animals/${oldData.id}`)
+                        axios.delete(`http://localhost:5000/api/v1/users/${oldData.id}`)
                             .then(function (response) {
                                 document.location.reload(true);
                             })

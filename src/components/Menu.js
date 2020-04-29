@@ -4,9 +4,6 @@ import logo from '../images/AD.png'
 import '../styles/Menu.css';
 
 class Menu extends Component{
-    constructor(props){
-        super(props)
-    }
 
     render(){
         return (

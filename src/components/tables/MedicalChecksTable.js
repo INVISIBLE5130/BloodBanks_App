@@ -2,40 +2,36 @@ import React, { Component } from "react";
 import axios from "axios";
 import MaterialTable from 'material-table';
 
-export default class AnimalsTable extends Component {
+export default class MedicalChecksTable extends Component {
     constructor(props){
         super(props);
         this.state = {
             columns: [
-                { title: 'Name', field: 'name' },
-                { title: 'Type', field: 'type' },
-                { title: 'Breed', field: 'breed' },
-                { title: 'Color', field: 'color' },
-                { title: 'Sex', field: 'sex' },
-                { title: 'Birth', field: 'birth' },
+                { title: 'Date', field: 'date' },
+                { title: 'Diagnosis', field: 'diagnosis' },
             ],
             data: []
         }
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:5000/api/v1/animals`)
+        axios.get(`http://localhost:5000/api/v1/medicalChecks`)
             .then((response) => this.setState({
                 data: response.data
             }))
-            .catch( (err) => console.log('[Animals Table get data]: ' + err) );
+            .catch( (err) => console.log('[Medical Checks Table get data]: ' + err) );
     }
 
     render() {
         console.log(this.state);
         return (
             <MaterialTable
-                title="Animals"
+                title="Medical Checks"
                 columns={this.state.columns}
                 data={this.state.data}
                 editable={{
                     onRowAdd: async (newData) => {
-                        axios.post('http://localhost:5000/api/v1/animals/', newData)
+                        axios.post('http://localhost:5000/api/v1/medicalChecks/', newData)
                             .then(function (response) {
                                 document.location.reload(true);
                             })
@@ -44,7 +40,7 @@ export default class AnimalsTable extends Component {
                             });
                     },
                     onRowUpdate: (newData) => {
-                        axios.put(`http://localhost:5000/api/v1/animals/${newData.id}`, newData)
+                        axios.put(`http://localhost:5000/api/v1/medicalChecks/${newData.id}`, newData)
                             .then(function (response) {
                                 document.location.reload(true);
                             })
@@ -53,7 +49,7 @@ export default class AnimalsTable extends Component {
                             });
                     },
                     onRowDelete: (oldData) =>{
-                        axios.delete(`http://localhost:5000/api/v1/animals/${oldData.id}`)
+                        axios.delete(`http://localhost:5000/api/v1/medicalChecks/${oldData.id}`)
                             .then(function (response) {
                                 document.location.reload(true);
                             })

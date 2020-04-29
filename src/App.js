@@ -16,28 +16,9 @@ import { MoreHoriz, AddBox, Delete, Edit, Build } from '@material-ui/icons';
 import {Route} from "react-router";
 import {BrowserRouter} from "react-router-dom";
 
-
-const color1 = '525252';
-const color2 = '414141';
-const color3 = '313131';
-const color4 = 'ca3e47';
-
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      selectedValue: 'Nothing selected'
-    }
-  }
-
-  handleSelectChange = (selectedValue) =>{
-    this.setState({
-      selectedValue: selectedValue
-    });
-  };
 
   render() {
-
     return (
         <div className="App">
           <BrowserRouter>

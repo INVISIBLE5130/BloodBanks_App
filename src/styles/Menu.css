@@ -13,6 +13,7 @@
 .Menu .link{
     margin-left: 3%;
     color: #F1FAEE;
+    transition-duration: 0.25s;
 }
 
 .Menu .link:hover{
