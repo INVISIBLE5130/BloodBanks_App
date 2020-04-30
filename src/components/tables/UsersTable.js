@@ -7,10 +7,10 @@ export default class UsersTable extends Component {
         super(props);
         this.state = {
             columns: [
-                { title: 'Full name', field: 'full_name' },
+                { title: 'Full name', field: 'fullName' },
                 { title: 'Sex', field: 'sex' },
                 { title: 'Date of birth', field: 'birth' },
-                { title: 'City', field: 'city' },
+                { title: 'Address', field: 'address' },
                 { title: 'Phone number', field: 'phone' },
                 { title: 'Email', field: 'email' },
                 { title: 'Password', field: 'password' },

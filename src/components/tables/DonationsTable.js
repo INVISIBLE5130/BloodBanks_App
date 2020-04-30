@@ -7,8 +7,9 @@ export default class DonationsTable extends Component {
         super(props);
         this.state = {
             columns: [
-                { title: 'Start date', field: 'takenAt' },
-                { title: 'Finish date', field: 'finishAt' },
+                { title: 'Start date', field: 'createdAt' },
+                { title: 'Finish date', field: 'expireAt' },
+                { title: 'Quantity', field: 'quantity' },
                 { title: 'Group', field: 'group' },
             ],
             data: []

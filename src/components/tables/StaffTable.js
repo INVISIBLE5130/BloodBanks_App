@@ -7,7 +7,7 @@ export default class StaffTable extends Component {
         super(props);
         this.state = {
             columns: [
-                { title: 'Full name', field: 'full_name' },
+                { title: 'Full name', field: 'fullName' },
                 { title: 'Position', field: 'position' },
                 { title: 'Date of birth', field: 'birth' },
                 { title: 'Phone number', field: 'phone' },

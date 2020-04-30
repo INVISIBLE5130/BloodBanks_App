@@ -8,9 +8,10 @@ export default class ClinicsTable extends Component {
         this.state = {
             columns: [
                 { title: 'Name', field: 'name' },
-                { title: 'Foundation date', field: 'foundatedAt' },
                 { title: 'Phone number', field: 'phone' },
-                { title: 'Schedule', field: 'schedule' },
+                { title: 'Address', field: 'address' },
+                { title: 'Foundation date', field: 'foundationYear' },
+                { title: 'City', field: 'city' },
             ],
             data: []
         }

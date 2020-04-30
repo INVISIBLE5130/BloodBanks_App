@@ -7,9 +7,10 @@ export default class BloodBanksTable extends Component {
         super(props);
         this.state = {
             columns: [
-                { title: 'Full name', field: 'full_name' },
-                { title: 'Phone number', field: 'phone' },
-                { title: 'Email', field: 'email' },
+                { title: 'Group', field: 'group' },
+                { title: 'Quantity', field: 'quantity' },
+                { title: 'Disease', field: 'disease' },
+                { title: 'Created at', field: 'createdAt' },
             ],
             data: []
         }
